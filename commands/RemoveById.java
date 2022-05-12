@@ -1,11 +1,11 @@
 package commands;
 
-import utils.CollectionManager;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public class RemoveById extends AbstractCommand {
-    static String alias = "remove_by_id";
+    public static String alias = "remove_by_id";
     static String description = "Удаление элемента из коллекции по id";
     public RemoveById(Scanner scanner) {
         super(scanner);

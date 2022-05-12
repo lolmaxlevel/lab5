@@ -1,11 +1,11 @@
 package commands;
 
-import utils.CollectionManager;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public class RemoveFirst extends AbstractCommand {
-    static String alias = "remove_first";
+    public static String alias = "remove_first";
     static String description = "Удаляет первый элемент коллекции";
     public RemoveFirst(Scanner scanner) {
         super(scanner);

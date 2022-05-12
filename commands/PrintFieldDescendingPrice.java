@@ -1,11 +1,11 @@
 package commands;
 
-import utils.CollectionManager;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public class PrintFieldDescendingPrice extends AbstractCommand{
-    static String alias = "print_field_descending_price";
+    public static String alias = "print_field_descending_price";
     static String description = "Выводит все цены в порядке убывания";
     public PrintFieldDescendingPrice(Scanner scanner) {
         super(scanner);

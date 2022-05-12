@@ -1,11 +1,11 @@
 package commands;
 
-import utils.CollectionManager;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public class RemoveLower extends AbstractCommand {
-    static String alias = "remove_lower";
+    public static String alias = "remove_lower";
     static String description = "Удаляет элементы дешевле заданного";
     public RemoveLower(Scanner scanner) {
         super(scanner);

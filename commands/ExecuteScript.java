@@ -1,11 +1,11 @@
 package commands;
 
-import utils.CollectionManager;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public class ExecuteScript extends AbstractCommand {
-    static String alias = "execute_script";
+    public static String alias = "execute_script";
     static String description = "Выполняет скрипт из файла";
     public ExecuteScript(Scanner scanner) {
         super(scanner);

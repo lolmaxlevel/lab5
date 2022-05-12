@@ -1,22 +1,31 @@
 package commands;
 
-import utils.CollectionManager;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public class Clear extends AbstractCommand {
-    static String alias = "clear";
-    static String description = "Очистить коллекцию";
+     public static final String alias = "clear";
+     public static final String description = "Очистить коллекцию";
+
+    public static String getAlias() {
+        return alias;
+    }
+
+    public static String getDescription() {
+        return description;
+    }
+
     public Clear(Scanner scanner) {
         super(scanner);
     }
 
     @Override
     public void execute(String[] args, CollectionManager collectionManager) {
-        if (collectionManager.isEmpty){
+        if (collectionManager.isEmpty()){
             System.out.println("Коллекция уже пуста");
         }else {
-            collectionManager.clear;
+            collectionManager.clear();
             System.out.println("Коллекция очищена");
         }
 

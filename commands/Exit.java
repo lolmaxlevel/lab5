@@ -1,11 +1,11 @@
 package commands;
 
-import utils.CollectionManager;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public class Exit extends AbstractCommand {
-    static String alias = "exit";
+    public static String alias = "exit";
     static String description = "Выходит из программы без сохранения коллекции";
     public Exit(Scanner scanner) {
         super(scanner);

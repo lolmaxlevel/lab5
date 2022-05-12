@@ -1,11 +1,11 @@
 package commands;
 
-import utils.CollectionManager;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public class Show extends AbstractCommand {
-    static String alias = "show";
+    public static String alias = "show";
     static String description = "Вывод все элементы коллекции";
     public Show(Scanner scanner) {
         super(scanner);

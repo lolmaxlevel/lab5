@@ -1,11 +1,12 @@
 package commands;
 
-import utils.CollectionManager;
+import exceptions.WrongAmountOfArgsException;
+import managers.CollectionManager;
 
 import java.util.Scanner;
 
 public abstract class AbstractCommand {
-    private Scanner scanner;
+    private final Scanner scanner;
     static String alias;
     static String description;
 
@@ -13,6 +14,15 @@ public abstract class AbstractCommand {
         this.scanner = scanner;
     }
     public Scanner getScanner(){return scanner;}
-    public abstract void execute(String[] args, CollectionManager collectionManager);
+
+    public static String getAlias() {
+        return alias;
+    }
+
+    public static String getDescription() {
+        return description;
+    }
+
+    public abstract void execute(String[] args, CollectionManager collectionManager) throws WrongAmountOfArgsException;
 }
 
