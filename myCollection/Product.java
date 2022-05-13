@@ -1,6 +1,8 @@
 package myCollection;
 
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Product implements Comparable<Product>{
@@ -27,7 +29,7 @@ public class Product implements Comparable<Product>{
 
     private int generateId(){
         UUID generatedId = UUID.randomUUID();
-        return generatedId.hashCode();
+        return Math.abs(generatedId.hashCode());
     }
     public int getId() {
         return id;
@@ -65,11 +67,11 @@ public class Product implements Comparable<Product>{
     public String toString() {
         return
                 "Продукт:" + name + "(" + id + ")" + ":\n" +
-                "\nКоординаты:" + coordinates.toString() +
-                "\nБыл создан:" + creationDate +
+                "Координаты:" + coordinates.toString() +
+                "\nБыл создан:" + creationDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd 'в' HH:mm:ss")) +
                 "\nЦена:" + price +
-                "\nЦена создания:" + manufactureCost +
-                "\nЕдиницы измерения:" + unitOfMeasure.toString() +
+                "\nЦена создания:" + Objects.toString(manufactureCost, "null") +
+                "\nЕдиницы измерения:" + Objects.toString(unitOfMeasure, "null") +
                 "\nВладелец:" + owner;
 
     }

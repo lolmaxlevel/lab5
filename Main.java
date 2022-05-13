@@ -1,6 +1,5 @@
 import managers.CollectionManager;
 import managers.ConsoleManager;
-import utils.MakeProduct;
 
 import java.util.Scanner;
 
@@ -10,7 +9,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         CollectionManager collectionManager = new CollectionManager(scanner);
         ConsoleManager consoleManager = new ConsoleManager(scanner);
-        MakeProduct productmaker = new MakeProduct(scanner);
 
         while (true) {
             System.out.print("Введите команду: ");

@@ -13,11 +13,10 @@ public class Person {
     private static List<String> passportIDs = new ArrayList<String>();
     @Override
     public String toString() {
-        return "Person{" +
-                "имя'" + name + '\'' +
-                ", вес" + weight +
-                ", номер паспорта" + passportID + '\'' +
-                '}';
+        return
+                "Имя " + name +
+                ", вес " + weight +
+                ", номер паспорта " + passportID;
     }
 
     private String[] existingIDs;

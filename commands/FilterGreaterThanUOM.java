@@ -2,6 +2,8 @@ package commands;
 
 import exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
+import myCollection.Product;
+import myCollection.UnitOfMeasure;
 
 import java.util.Scanner;
 
@@ -20,7 +22,23 @@ public class FilterGreaterThanUOM extends AbstractCommand{
                     String.join(" ", acceptedArgs));
         }
         else {
-            //TODO
+            try {
+                int c = 0;
+                UnitOfMeasure UOM = UnitOfMeasure.valueOf(args[0]);
+                for (Product p : collectionManager.getCollection()) {
+                    if (p.getUnitOfMeasure() != null){
+                        if (p.getUnitOfMeasure().compareTo(UOM) < 0){
+                            System.out.println(p);
+                            c++;
+                        }
+                    }
+                }
+                if (c==0){
+                    System.out.println("Нет таких элементов");
+                }
+            }catch (IllegalArgumentException e)
+            {System.out.println("Неверный аргумент команды");
+            }
         }
     }
 }

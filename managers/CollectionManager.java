@@ -1,6 +1,5 @@
 package managers;
 
-import exceptions.WrongArgException;
 import myCollection.Product;
 import utils.MakeProduct;
 
@@ -30,5 +29,11 @@ public class CollectionManager {
     }
     public void removeGreater(int a){
         //TODO
+    }
+    public void showAll(){
+
+    }
+    public ArrayList<Product> getCollection(){
+        return collection;
     }
 }
