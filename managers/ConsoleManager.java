@@ -48,6 +48,8 @@ public class ConsoleManager {
                 commands.get(commandName).execute(args, collectionManager);
             } catch (WrongAmountOfArgsException e) {
                 System.out.println("Команда принимает число аргументов: " + e.getMessage());
+            } catch (WrongArgException e) {
+                throw new RuntimeException(e);
             }
         } else {
             System.out.println("Такой команды нет. Введите help, чтобы получить список и описание команд.");

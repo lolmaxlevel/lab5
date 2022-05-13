@@ -12,7 +12,7 @@ public class Product implements Comparable<Product>{
     private Long manufactureCost; //Поле может быть null
     private UnitOfMeasure unitOfMeasure; //Поле может быть null
     private Person owner; //Поле может быть null
-    public Product(int id, String name, Coordinates coordinates, double price,
+    public Product(String name, Coordinates coordinates, double price,
                        Long manufactureCost, UnitOfMeasure unitOfMeasure, Person owner){
         this.id = this.generateId();
         this.name = name;
@@ -23,10 +23,12 @@ public class Product implements Comparable<Product>{
         this.unitOfMeasure = unitOfMeasure;
         this.owner = owner;
     }
+
+
     private int generateId(){
         UUID generatedId = UUID.randomUUID();
         return generatedId.hashCode();
-    };
+    }
     public int getId() {
         return id;
     }
