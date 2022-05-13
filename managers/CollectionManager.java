@@ -36,4 +36,7 @@ public class CollectionManager {
     public ArrayList<Product> getCollection(){
         return collection;
     }
+    public int getSize(){
+        return collection.size();
+    }
 }

@@ -2,8 +2,10 @@ package commands;
 
 import exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
+import myCollection.Product;
 
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class PrintFieldDescendingPrice extends AbstractCommand{
     public static String alias = "print_field_descending_price";
@@ -20,7 +22,14 @@ public class PrintFieldDescendingPrice extends AbstractCommand{
                     String.join(" ", acceptedArgs));
         }
         else {
-            //TODO
+            if (collectionManager.getSize()!=0){
+                List<Double> prices = new ArrayList<>();
+                for (Product p : collectionManager.getCollection()) {
+                    prices.add(p.getPrice());
+                }
+                Collections.reverse(prices);
+                prices.forEach(System.out::println);
+            } else System.out.println("Коллекция пуста");
         }
     }
 }
