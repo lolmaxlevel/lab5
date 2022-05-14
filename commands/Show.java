@@ -21,8 +21,11 @@ public class Show extends AbstractCommand {
             throw new WrongAmountOfArgsException(String.valueOf(acceptedArgs.length),
                     String.join(" ", acceptedArgs));
         } else {
-            for (Product p : collectionManager.getCollection()) {
-                System.out.println(p);
+            if (collectionManager.isEmpty()) System.out.println("Коллекция пуста");
+            else {
+                for (Product p : collectionManager.getCollection()) {
+                    System.out.println(p);
+                }
             }
         }
     }

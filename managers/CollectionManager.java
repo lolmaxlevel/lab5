@@ -4,6 +4,7 @@ import myCollection.Product;
 import utils.MakeProduct;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class CollectionManager {
@@ -38,5 +39,11 @@ public class CollectionManager {
     }
     public int getSize(){
         return collection.size();
+    }
+    public void removeByID(int id){
+        collection.removeIf(id1 -> id1.getId()==(id));
+    }
+    public void removeByManufactureCost(Long price){
+        collection.removeIf(id1 -> Objects.equals(id1.getManufactureCost(), price));
     }
 }

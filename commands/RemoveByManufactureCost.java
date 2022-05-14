@@ -3,6 +3,7 @@ package commands;
 import exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class RemoveByManufactureCost extends AbstractCommand {
@@ -20,7 +21,14 @@ public class RemoveByManufactureCost extends AbstractCommand {
                     String.join(" ", acceptedArgs));
         }
         else {
-            //TODO
+            if (Objects.equals(args[0], "null")) {
+                collectionManager.removeByManufactureCost(null);
+            } else {
+                try {
+                    collectionManager.removeByManufactureCost(Long.parseLong(args[0]));
+                    System.out.println("Элементы коллекции удалены");
+            } catch (NumberFormatException e){System.out.println("Команда принимает аргументы:"+String.join(",", acceptedArgs));}
+            }
         }
     }
 }
