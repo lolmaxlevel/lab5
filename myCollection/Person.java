@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class Person {
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -20,7 +21,7 @@ public class Person {
                 ", номер паспорта " + passportID;
     }
 
-    private String[] existingIDs;
+    private static String[] existingIDs;
     public Person(String name, long weight, String passportID) throws WrongArgException {
         setName(name);
         setWeight(weight);
@@ -34,6 +35,7 @@ public class Person {
             this.name = name;
         }
         else {
+            this.name = "defaultName";
             throw new WrongArgException("Имя");
         }
     }
@@ -43,13 +45,18 @@ public class Person {
             this.weight = weight;
         }
         else {
+            this.weight = Long.parseLong("1");
             throw new WrongArgException("Вес");
         }
     }
 
-    public void setPassportID(String passportID) {
-        this.passportID = passportID;
-        passportIDs.add(passportID);
+    public void setPassportID(String passportID) throws WrongArgException {
+        if (passportIDs.contains(passportID))
+            throw new WrongArgException("Номер паспорта");
+        else {
+            this.passportID = passportID;
+            passportIDs.add(passportID);
+        }
     }
 
     public String getName() {

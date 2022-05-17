@@ -5,6 +5,6 @@ public class WrongArgException extends Exception{
         super("Вы ввели неправильное значение!");
     }
     public WrongArgException(String field){
-        super("Вы ввели неправильное значение!"+"поле"+field);
+        System.out.println("Неправильное значение в xml файле! "+"поле "+field);
     }
 }

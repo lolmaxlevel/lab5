@@ -1,6 +1,7 @@
 package managers;
 
 import commands.*;
+import exceptions.ScriptLoopException;
 import exceptions.WrongAmountOfArgsException;
 import exceptions.WrongArgException;
 
@@ -47,10 +48,8 @@ public class ConsoleManager {
         if (commands.containsKey(commandName)) {
             try{
                 commands.get(commandName).execute(args, collectionManager);
-            } catch (WrongAmountOfArgsException e) {
+            } catch (WrongAmountOfArgsException | WrongArgException e) {
                 System.out.println(e.getMessage());
-            } catch (WrongArgException e) {
-                throw new RuntimeException(e);
             }
         } else {
             System.out.println("Такой команды нет. Введите help, чтобы получить список и описание команд.");

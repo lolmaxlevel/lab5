@@ -1,3 +1,4 @@
+import exceptions.WrongArgException;
 import managers.CollectionManager;
 import managers.ConsoleManager;
 import managers.FileManager;
@@ -19,7 +20,6 @@ public class Main {
             try {
                 if (args.length == 1) collectionManager.addAll(FileManager.loadFromFile(args[0]));
             }catch (JAXBException e) {
-                e.printStackTrace();
                 System.out.println("Структура xml файла неверна\nФайл не был загружен");
             }
         }

@@ -1,5 +1,6 @@
 package myCollection;
 
+import exceptions.WrongArgException;
 import utils.ZonedDateTimeAdapter;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -7,11 +8,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-@XmlRootElement(name = "book")
 public class Product implements Comparable<Product>{
-    @XmlElement(name = "id")
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -22,9 +23,11 @@ public class Product implements Comparable<Product>{
     private Long manufactureCost; //Поле может быть null
     private UnitOfMeasure unitOfMeasure; //Поле может быть null
     private Person owner; //Поле может быть null
+    private static final List<Integer> Ids = new ArrayList<>();
     public Product(String name, Coordinates coordinates, double price,
                        Long manufactureCost, UnitOfMeasure unitOfMeasure, Person owner){
         this.id = generateId();
+        Ids.add(this.id);
         this.name = name;
         this.coordinates = coordinates;
         this.creationDate = getTime();
@@ -34,6 +37,15 @@ public class Product implements Comparable<Product>{
         this.owner = owner;
     }
     public Product(){}
+    @XmlElement(name = "id")
+    public void setId(int id) {
+        if (Ids.contains(id))
+        {
+            id = generateId();
+        }
+        this.id = id;
+        Ids.add(id);
+    }
 
     private static int generateId(){
         UUID generatedId = UUID.randomUUID();
@@ -46,22 +58,34 @@ public class Product implements Comparable<Product>{
         return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) throws WrongArgException {
+        if(name != null && !name.isEmpty()){
+            this.name = name;
+        }
+        else {
+            this.name = "defaultName";
+            throw new WrongArgException("Имя");
+        }
     }
 
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public void setCoordinates(Coordinates coordinates) throws WrongArgException {
+        if (coordinates.getX() > 6 || coordinates.getX() == null)
+            throw new WrongArgException("координаты");
+        else
+            this.coordinates = coordinates;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPrice(double price) throws WrongArgException {
+        if (price <= 0)
+            throw new WrongArgException("цена");
+        else
+            this.price = price;
     }
 
     public void setManufactureCost(Long manufactureCost) {
         this.manufactureCost = manufactureCost;
     }
-
+    @XmlElement(name = "unitOfMeasure")
     public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
         this.unitOfMeasure = unitOfMeasure;
     }
@@ -93,7 +117,6 @@ public class Product implements Comparable<Product>{
     public Person getOwner() {
         return owner;
     }
-    @XmlElement(name = "unitOfMeasure")
     public UnitOfMeasure getUnitOfMeasure() {
         return unitOfMeasure;
     }
