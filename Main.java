@@ -3,6 +3,7 @@ import managers.ConsoleManager;
 import managers.FileManager;
 
 import javax.xml.bind.JAXBException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -18,6 +19,7 @@ public class Main {
             try {
                 if (args.length == 1) collectionManager.addAll(FileManager.loadFromFile(args[0]));
             }catch (JAXBException e) {
+                e.printStackTrace();
                 System.out.println("Структура xml файла неверна\nФайл не был загружен");
             }
         }
@@ -25,8 +27,8 @@ public class Main {
         while (true) {
             System.out.print("Введите команду: ");
             if (scanner.hasNextLine()) {
-                String line = scanner.nextLine().trim();
-                consoleManager.executeCommand(line, collectionManager);
+                String command = scanner.nextLine().trim().toLowerCase(Locale.ROOT);
+                consoleManager.executeCommand(command, collectionManager);
             } else {
                 System.exit(0);
             }

@@ -13,19 +13,14 @@ import java.util.UUID;
 public class Product implements Comparable<Product>{
     @XmlElement(name = "id")
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    @XmlElement(name = "name")
+
     private String name; //Поле не может быть null, Строка не может быть пустой
-    @XmlElement(name = "coordinates")
     private Coordinates coordinates; //Поле не может быть null
 
     private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    @XmlElement(name = "price")
     private double price; //Значение поля должно быть больше 0
-    @XmlElement(name = "manufactureCost")
     private Long manufactureCost; //Поле может быть null
-    @XmlElement(name = "unitOfMeasure")
     private UnitOfMeasure unitOfMeasure; //Поле может быть null
-    @XmlElement(name = "owner")
     private Person owner; //Поле может быть null
     public Product(String name, Coordinates coordinates, double price,
                        Long manufactureCost, UnitOfMeasure unitOfMeasure, Person owner){
@@ -51,10 +46,34 @@ public class Product implements Comparable<Product>{
         return id;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setManufactureCost(Long manufactureCost) {
+        this.manufactureCost = manufactureCost;
+    }
+
+    public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
+        this.unitOfMeasure = unitOfMeasure;
+    }
+
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
+    @XmlElement(name = "name")
     public String getName() {
         return name;
     }
-
+    @XmlElement(name = "coordinates")
     public Coordinates getCoordinates() {
         return coordinates;
     }
@@ -62,19 +81,19 @@ public class Product implements Comparable<Product>{
     public ZonedDateTime getCreationDate() {
         return creationDate;
     }
-
+    @XmlElement(name = "price")
     public double getPrice() {
         return price;
     }
-
+    @XmlElement(name = "manufactureCost")
     public Long getManufactureCost() {
         return manufactureCost;
     }
-
+    @XmlElement(name = "owner")
     public Person getOwner() {
         return owner;
     }
-
+    @XmlElement(name = "unitOfMeasure")
     public UnitOfMeasure getUnitOfMeasure() {
         return unitOfMeasure;
     }

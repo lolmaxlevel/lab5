@@ -1,10 +1,10 @@
 package managers;
 
+import exceptions.NotFoundIdException;
 import myCollection.Product;
 import utils.MakeProduct;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
@@ -12,9 +12,11 @@ import java.util.Scanner;
 public class CollectionManager {
     private final ArrayList<Product> collection;
     MakeProduct makeProduct;
+    ZonedDateTime creationDate;
     public CollectionManager(Scanner scanner) {
         this.collection = new ArrayList<>();
         this.makeProduct = new MakeProduct(scanner);
+        this.creationDate= ZonedDateTime.now();
     }
 
     public void addItem(Product abob) {
@@ -41,7 +43,6 @@ public class CollectionManager {
         return collection.size();
     }
     public void removeByID(int id){
-
         collection.removeIf(id1 -> id1.getId()==(id));
     }
     public void removeByManufactureCost(Long price){
@@ -63,5 +64,16 @@ public class CollectionManager {
     }
     public void addAll(ArrayList<Product> products) {
         this.collection.addAll(products);
+    }
+    public ZonedDateTime getCreationDate(){
+        return this.creationDate;
+    }
+    public Product getElementById(int id) throws NotFoundIdException {
+        for(Product product: getCollection()) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        throw new NotFoundIdException();
     }
 }

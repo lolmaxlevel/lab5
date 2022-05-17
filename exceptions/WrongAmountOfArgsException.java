@@ -5,7 +5,7 @@ public class WrongAmountOfArgsException extends Exception{
     }
 
     public WrongAmountOfArgsException(String message, String args) {
-        super("Команда принимает"+message+"аргументов" + ((args.isEmpty()) ? args : ""));
+        super("Команда принимает "+message+" аргументов " + args);
     }
 
     public WrongAmountOfArgsException(String message, Throwable cause) {

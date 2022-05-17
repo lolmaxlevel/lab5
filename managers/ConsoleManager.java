@@ -48,7 +48,7 @@ public class ConsoleManager {
             try{
                 commands.get(commandName).execute(args, collectionManager);
             } catch (WrongAmountOfArgsException e) {
-                System.out.println("Команда принимает число аргументов: " + e.getMessage());
+                System.out.println(e.getMessage());
             } catch (WrongArgException e) {
                 throw new RuntimeException(e);
             }

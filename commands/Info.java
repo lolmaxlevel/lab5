@@ -3,6 +3,7 @@ package commands;
 import exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Info extends AbstractCommand {
@@ -20,7 +21,10 @@ public class Info extends AbstractCommand {
                     String.join(" ", acceptedArgs));
         }
         else {
-            //TODO
+            System.out.println("Тип: " + collectionManager.getCollection().getClass().getName()
+                    +"\nДата инициализации: " +
+                    collectionManager.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+
+            "\nКоличество элементов: " + collectionManager.getSize());
         }
     }
 }

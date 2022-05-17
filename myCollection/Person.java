@@ -49,6 +49,7 @@ public class Person {
 
     public void setPassportID(String passportID) {
         this.passportID = passportID;
+        passportIDs.add(passportID);
     }
 
     public String getName() {
