@@ -9,6 +9,7 @@ public class Coordinates {
         setX(x);
         setY(y);
     }
+    public Coordinates(){}
 
     public Integer getX() {
         return x;

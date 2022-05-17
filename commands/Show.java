@@ -25,6 +25,7 @@ public class Show extends AbstractCommand {
             else {
                 for (Product p : collectionManager.getCollection()) {
                     System.out.println(p);
+                    System.out.println("\n");
                 }
             }
         }

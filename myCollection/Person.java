@@ -2,6 +2,7 @@ package myCollection;
 
 import exceptions.WrongArgException;
 
+import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ public class Person {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private long weight; //Значение поля должно быть больше 0
     private String passportID; //Значение этого поля должно быть уникальным, Длина строки не должна быть больше 38, Длина строки должна быть не меньше 4, Поле не может быть null
-    private static List<String> passportIDs = new ArrayList<String>();
+    private static final List<String> passportIDs = new ArrayList<>();
     @Override
     public String toString() {
         return
@@ -26,6 +27,7 @@ public class Person {
         setPassportID(passportID);
         passportIDs.add(passportID);
     }
+    public Person(){}
 
     public void setName(String name) throws WrongArgException {
         if(name != null && !name.isEmpty()){
@@ -45,7 +47,7 @@ public class Person {
         }
     }
 
-    public void setPassportID(String passportID) throws WrongArgException {
+    public void setPassportID(String passportID) {
         this.passportID = passportID;
     }
 

@@ -3,9 +3,7 @@ package commands;
 import exceptions.WrongAmountOfArgsException;
 import exceptions.WrongArgException;
 import managers.CollectionManager;
-import myCollection.Person;
 import myCollection.Product;
-import myCollection.UnitOfMeasure;
 import utils.MakeProduct;
 
 import java.util.Scanner;

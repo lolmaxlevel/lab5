@@ -21,7 +21,9 @@ public class RemoveFirst extends AbstractCommand {
                     String.join(" ", acceptedArgs));
         }
         else {
-            collectionManager.removeFirst();
+            if (collectionManager.isEmpty()){
+                System.out.println("Коллекция пуста");
+            } else collectionManager.removeFirst();
         }
     }
 }

@@ -4,6 +4,7 @@ import commands.*;
 import exceptions.WrongAmountOfArgsException;
 import exceptions.WrongArgException;
 
+import javax.xml.bind.JAXBException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
