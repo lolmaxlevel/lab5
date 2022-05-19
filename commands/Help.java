@@ -4,6 +4,9 @@ import exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
 
 import java.util.Scanner;
+/**
+ * Класс команды help
+ */
 
 public class Help extends AbstractCommand {
     public static String alias = "help";

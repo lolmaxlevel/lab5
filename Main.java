@@ -7,6 +7,9 @@ import javax.xml.bind.JAXBException;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * основной класс программы, входная точка в программу
+ */
 public class Main {
 
     public static void main(String[] args){
@@ -20,7 +23,7 @@ public class Main {
             try {
                 if (args.length == 1) collectionManager.addAll(FileManager.loadFromFile(args[0]));
             }catch (JAXBException e) {
-                System.out.println("Структура xml файла неверна\nФайл не был загружен");
+                System.out.println("Что то не так с загрузкой из файла, проверьте структуру xml файла");
             }
         }
 

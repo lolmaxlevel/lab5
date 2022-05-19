@@ -4,6 +4,9 @@ import exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
 
 import java.util.Scanner;
+/**
+ * Класс команды remove by id
+ */
 
 public class RemoveById extends AbstractCommand {
     public static String alias = "remove_by_id";

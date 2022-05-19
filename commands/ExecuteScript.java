@@ -12,12 +12,17 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+ * Класс команды execute script
+ */
+
 public class ExecuteScript extends AbstractCommand {
     public static String alias = "execute_script";
     static String description = "Выполняет скрипт из файла";
     private static final String[] acceptedArgs = {"file_path"};
     public static Stack<String> scriptStack = new Stack<>();
     public static PrintStream console = System.out;
+    String filePath;
     public ExecuteScript(Scanner scanner) {
         super(scanner);
     }
@@ -29,12 +34,13 @@ public class ExecuteScript extends AbstractCommand {
                     String.join(" ", acceptedArgs));
         }
         else {
+            filePath = ((args[0].endsWith(".txt")) ? args[0] : args[0]+"script.txt");
             try {
-                if (scriptStack.contains(args[0].toLowerCase(Locale.ROOT))) throw new ScriptLoopException(console);
+                if (scriptStack.contains(filePath.toLowerCase(Locale.ROOT))) throw new ScriptLoopException(console);
 
-                scriptStack.push(args[0].toLowerCase(Locale.ROOT));
+                scriptStack.push(filePath.toLowerCase(Locale.ROOT));
 
-                Scanner scriptScanner = new Scanner(new File(args[0]));
+                Scanner scriptScanner = new Scanner(new File(filePath));
 
                 ConsoleManager scriptConsoleManager = new ConsoleManager(scriptScanner);
                 PrintStream fileOut = new PrintStream("script_output.txt");

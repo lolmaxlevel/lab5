@@ -10,9 +10,17 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * класс для работы с командами через консоль
+ */
 public class ConsoleManager {
     private final HashMap<String, AbstractCommand> commands = new HashMap<>();
     private Scanner scanner;
+
+    /**
+     * конструктор класса
+     * @param scanner сканер
+     */
     public ConsoleManager(Scanner scanner){
         this.scanner = scanner;
         commands.put(Add.alias, new Add(scanner));
@@ -41,6 +49,11 @@ public class ConsoleManager {
         this.scanner = scanner;
     }
 
+    /**
+     * функция выполнения определенной команды
+     * @param commandLine строка с командой и аргументами
+     * @param collectionManager менеджер коллекции
+     */
     public void executeCommand(String commandLine, CollectionManager collectionManager){
         String[] args = commandLine.split("\\s+");
         String commandName = args[0];

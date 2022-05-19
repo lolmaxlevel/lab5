@@ -6,7 +6,13 @@ import managers.CollectionManager;
 
 import java.util.Scanner;
 
+/**
+ * 
+ */
 public abstract class AbstractCommand {
+    /**
+     *Класс абстрактной команды
+     */
     private final Scanner scanner;
     static String alias;
     static String description;

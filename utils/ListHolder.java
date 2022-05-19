@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * дополнительный класс для работы JAXb
+ */
 @XmlRootElement(name = "Products")
 public class ListHolder {
 

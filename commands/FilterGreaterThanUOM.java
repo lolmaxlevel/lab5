@@ -6,7 +6,9 @@ import myCollection.Product;
 import myCollection.UnitOfMeasure;
 
 import java.util.Scanner;
-
+/**
+ * Класс команды Filter Greater Than unite_of_measure
+ */
 public class FilterGreaterThanUOM extends AbstractCommand{
     public static String alias = "filter_greater_than_UOM";
     static String description = "Выводит элементы у которых поле unitOfMeasure больше данного";

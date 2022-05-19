@@ -4,6 +4,9 @@ import exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
 
 import java.util.Scanner;
+/**
+ * Класс команды execute exit
+ */
 
 public class Exit extends AbstractCommand {
     public static String alias = "exit";

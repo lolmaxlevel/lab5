@@ -10,6 +10,9 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * класс, который используется для создания элемента Product
+ */
 public class MakeProduct {
     private final Scanner scanner;
 

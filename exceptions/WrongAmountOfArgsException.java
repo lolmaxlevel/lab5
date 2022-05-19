@@ -1,5 +1,7 @@
 package exceptions;
-
+/**
+ * Класс-исключение - вызывается, когда команде передано неверное количество аргументов
+ */
 public class WrongAmountOfArgsException extends Exception{
     public WrongAmountOfArgsException() {
     }

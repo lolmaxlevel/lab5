@@ -8,6 +8,9 @@ import myCollection.Product;
 import utils.MakeProduct;
 
 import java.util.Scanner;
+/**
+ * Класс команды update by id
+ */
 
 public class UpdateById extends AbstractCommand {
     public static String alias = "update_by_id";

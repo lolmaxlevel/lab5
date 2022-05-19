@@ -6,6 +6,10 @@ import managers.CollectionManager;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+/**
+ * Класс команды Info
+ */
+
 public class Info extends AbstractCommand {
     public static String alias = "info";
     static String description = "Вывод информации о коллекции";

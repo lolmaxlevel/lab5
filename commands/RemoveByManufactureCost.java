@@ -5,7 +5,9 @@ import managers.CollectionManager;
 
 import java.util.Objects;
 import java.util.Scanner;
-
+/**
+ * Класс команды remove by manufacture cost
+ */
 public class RemoveByManufactureCost extends AbstractCommand {
     public static String alias = "remove_by_manufacture_cost";
     static String description = "Удаляет все элементы коллекции которые дешевле данного";

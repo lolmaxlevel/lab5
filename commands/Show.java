@@ -5,6 +5,9 @@ import managers.CollectionManager;
 import myCollection.Product;
 
 import java.util.Scanner;
+/**
+ * Класс команды show
+ */
 
 public class Show extends AbstractCommand {
     public static String alias = "show";

@@ -11,9 +11,19 @@ import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.util.ArrayList;
 
-
+/**
+ * класс для работы с файлами(чтения и записи коллекции в файл)
+ */
 public class FileManager {
     public FileManager() {}
+
+    /**
+     * функция, которая сохраняет коллекцию в файл
+     * @param filePath путь к файлу
+     * @param collectionManager менеджер коллекции откуда брать коллекцию
+     * @throws JAXBException исключение, которое вызывается если что-то не так с коллекцией
+     * @throws FileNotFoundException исключение, которое вызывается если что-то не так с файлом(нет прав или файла)
+     */
     public static void saveToFile(String filePath, CollectionManager collectionManager) throws JAXBException, FileNotFoundException {
         ListHolder holder = new ListHolder();
         holder.setList(collectionManager.getCollection());
@@ -23,6 +33,12 @@ public class FileManager {
         printStream.print(listXML);
         printStream.close();
     }
+    /**
+     * функция, которая загружает коллекцию из файла
+     * @param filePath путь к файлу
+     * @throws JAXBException исключение, которое вызывается если что-то не так с коллекцией
+     * @return коллекция, прочитанная из файла
+     */
     public static ArrayList<Product> loadFromFile(String filePath) throws JAXBException {
         StringBuilder listXML = new StringBuilder();
         File file;
@@ -45,6 +61,12 @@ public class FileManager {
         return newHolder.getList();
     }
 
+    /**
+     * дополнительная функция преобразования коллекции в текст
+     * @param objectName объект коллекции который нужно сохранить
+     * @return текстовое представление того что нужно сохранить
+     * @throws JAXBException вызывается если невозможно преобразовать коллекцию в текст
+     */
     public static String marshalIt(Object objectName) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(objectName.getClass());
         Marshaller marshaller = jaxbContext.createMarshaller();
@@ -58,6 +80,13 @@ public class FileManager {
 
     }
 
+    /**
+     * дополнительная функция которая преобразует текст в коллекции
+     * @param className объект коллекции
+     * @param xml строка из которой нужно сделать коллекции
+     * @return обьект коллекции
+     * @throws JAXBException вызывается если невозможно преобразовать текст в коллекцию
+     */
     public static Object unmarshalIt(Class<?> className, String xml) throws JAXBException {
 
         JAXBContext jaxbContext = JAXBContext.newInstance(className);

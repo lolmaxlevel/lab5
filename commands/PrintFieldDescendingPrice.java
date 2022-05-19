@@ -7,6 +7,9 @@ import myCollection.Product;
 import java.lang.reflect.Array;
 import java.util.*;
 
+/**
+ * Класс команды print field descending price
+ */
 public class PrintFieldDescendingPrice extends AbstractCommand{
     public static String alias = "print_field_descending_price";
     static String description = "Выводит все цены в порядке убывания";

@@ -8,7 +8,9 @@ import managers.FileManager;
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+/**
+ * Класс команды save
+ */
 public class Save extends AbstractCommand {
     public static String alias = "save";
     static String description = "Сохраняет коллекцию в файл";

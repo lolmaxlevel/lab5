@@ -4,7 +4,6 @@ import exceptions.WrongArgException;
 import utils.ZonedDateTimeAdapter;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+
+/**
+ * Класс элементов коллекции
+ */
 public class Product implements Comparable<Product>{
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 
@@ -24,6 +27,16 @@ public class Product implements Comparable<Product>{
     private UnitOfMeasure unitOfMeasure; //Поле может быть null
     private Person owner; //Поле может быть null
     private static final List<Integer> Ids = new ArrayList<>();
+
+    /**
+     * конструктор класса
+     * @param name имя
+     * @param coordinates координаты
+     * @param price цена
+     * @param manufactureCost цена производства
+     * @param unitOfMeasure единицы измерения
+     * @param owner владелец, класс Person
+     */
     public Product(String name, Coordinates coordinates, double price,
                        Long manufactureCost, UnitOfMeasure unitOfMeasure, Person owner){
         this.id = generateId();
@@ -42,6 +55,7 @@ public class Product implements Comparable<Product>{
         if (Ids.contains(id))
         {
             id = generateId();
+            System.out.println("В файле есть повторяющийся id, который был заменен на новый");
         }
         this.id = id;
         Ids.add(id);
@@ -138,14 +152,16 @@ public class Product implements Comparable<Product>{
                 "\nВладелец:" + owner;
 
     }
+
+    /**
+     * функция сравнение двух продуктов по цене
+     * @param o the object to be compared.
+     * @return 0 если элементы равны, <1 если первый элемент дешевле, >1 если первый элемент дороже
+     */
     @Override
     public int compareTo(Product o) {
-            int result = this.name.compareTo(o.name);
-
-            if (result == 0) {
-                result = Double.compare(this.price, o.price);
-            }
-            if (result == 0) {
+        int result = Double.compare(this.price, o.price);
+        if (result == 0) {
             result = this.creationDate.compareTo(o.creationDate);
             }
             return result;

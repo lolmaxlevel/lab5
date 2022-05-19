@@ -7,10 +7,12 @@ import myCollection.Product;
 import utils.MakeProduct;
 
 import java.util.Scanner;
-
+/**
+ * Класс команды remove greater
+ */
 public class RemoveGreater extends AbstractCommand {
     public static String alias = "remove_greater";
-    static String description = "Удаляет элементы дороже заданного";
+    static String description = "Удаляет элементы лучше заданного";
     private static final String[] acceptedArgs = {"Product"};
 
     public RemoveGreater(Scanner scanner) {

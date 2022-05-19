@@ -4,7 +4,9 @@ import exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
 
 import java.util.Scanner;
-
+/**
+ * Класс команды remove first
+ */
 public class RemoveFirst extends AbstractCommand {
     public static String alias = "remove_first";
     static String description = "Удаляет первый элемент коллекции";

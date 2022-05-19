@@ -7,6 +7,9 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * дополнительный класс для правильной конвертации времени в файл и обратно
+ */
 public class ZonedDateTimeAdapter extends XmlAdapter<String, ZonedDateTime> {
 
     private final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

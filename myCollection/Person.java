@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Класс владельца для класса Product
+ */
 public class Person {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private long weight; //Значение поля должно быть больше 0
@@ -50,6 +53,11 @@ public class Person {
         }
     }
 
+    /**
+     * функция задания номера паспорта
+     * @param passportID номер паспорта
+     * @throws WrongArgException исключение, которое вызывается если номер паспорта неверен
+     */
     public void setPassportID(String passportID) throws WrongArgException {
         if (passportIDs.contains(passportID))
             throw new WrongArgException("Номер паспорта");

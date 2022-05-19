@@ -7,7 +7,9 @@ import myCollection.Product;
 import utils.MakeProduct;
 
 import java.util.Scanner;
-
+/**
+ * Класс команды remove lower
+ */
 public class RemoveLower extends AbstractCommand {
     public static String alias = "remove_lower";
     static String description = "Удаляет элементы дешевле заданного";
