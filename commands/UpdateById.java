@@ -31,7 +31,7 @@ public class UpdateById extends AbstractCommand {
             try {
                 MakeProduct makeProduct = new MakeProduct(getScanner());
                 Product prod = collectionManager.getElementById(Integer.parseInt(args[0]));
-                prod.setName(makeProduct.askName());
+                prod.setName(makeProduct.askName(0));
                 prod.setCoordinates(makeProduct.askCoordinates());
                 prod.setPrice(makeProduct.askPrice());
                 prod.setManufactureCost(makeProduct.askManufactureCost());

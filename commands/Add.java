@@ -42,7 +42,7 @@ public class Add extends AbstractCommand {
                     String.join(" ", acceptedArgs));
         }
         else {
-            collectionManager.addItem(new Product(makeProduct.askName(), makeProduct.askCoordinates(), makeProduct.askPrice(), makeProduct.askManufactureCost(),
+            collectionManager.addItem(new Product(makeProduct.askName(0), makeProduct.askCoordinates(), makeProduct.askPrice(), makeProduct.askManufactureCost(),
                    makeProduct.askUOM(), makeProduct.askOwner()));
         }
     }

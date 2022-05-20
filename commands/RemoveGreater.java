@@ -27,7 +27,7 @@ public class RemoveGreater extends AbstractCommand {
         }
         else {
             MakeProduct makeProduct = new MakeProduct(getScanner());
-            Product pr = new Product(makeProduct.askName(), makeProduct.askCoordinates(), makeProduct.askPrice(), makeProduct.askManufactureCost(),
+            Product pr = new Product(makeProduct.askName(0), makeProduct.askCoordinates(), makeProduct.askPrice(), makeProduct.askManufactureCost(),
                     makeProduct.askUOM(), makeProduct.askOwner());
             collectionManager.removeGreater(pr);
         }

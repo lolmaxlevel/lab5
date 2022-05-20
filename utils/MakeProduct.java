@@ -19,9 +19,12 @@ public class MakeProduct {
     public MakeProduct(Scanner scanner){
         this.scanner = scanner;
     }
-    public String askName(){
+    public String askName(int fl){
         while (true){
-            System.out.print("Введите имя (строка, непустая, не null):");
+            if (fl != 1)
+                System.out.print("Введите имя продукта(строка, непустая, не null):");
+            else
+                System.out.println("Введите имя владельца(строка, непустая, не null):");
             try {
                 String name = scanner.nextLine().trim();
                 if (name.equals("null") || name.isEmpty()) throw new WrongInputException();
@@ -118,7 +121,7 @@ public class MakeProduct {
         }
     }
     public Person askOwner() throws WrongArgException {
-        return new Person(askName(),askWeight(),askPassportID());
+        return new Person(askName(1),askWeight(),askPassportID());
     }
     public long askWeight(){
         while (true){

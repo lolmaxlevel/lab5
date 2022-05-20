@@ -10,25 +10,28 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * класс для работы с файлами(чтения и записи коллекции в файл)
  */
+
 public class FileManager {
+
     public FileManager() {}
 
     /**
      * функция, которая сохраняет коллекцию в файл
-     * @param filePath путь к файлу
+     *
      * @param collectionManager менеджер коллекции откуда брать коллекцию
-     * @throws JAXBException исключение, которое вызывается если что-то не так с коллекцией
+     * @throws JAXBException         исключение, которое вызывается если что-то не так с коллекцией
      * @throws FileNotFoundException исключение, которое вызывается если что-то не так с файлом(нет прав или файла)
      */
-    public static void saveToFile(String filePath, CollectionManager collectionManager) throws JAXBException, FileNotFoundException {
+    public static void saveToFile(CollectionManager collectionManager) throws JAXBException, FileNotFoundException {
         ListHolder holder = new ListHolder();
         holder.setList(collectionManager.getCollection());
         String listXML = marshalIt(holder);
-        final OutputStream os = new FileOutputStream(filePath+"collection.xml");
+        final OutputStream os = new FileOutputStream((Objects.equals(defaultPath, "")) ? "collection.xml" : defaultPath);
         final PrintStream printStream = new PrintStream(os);
         printStream.print(listXML);
         printStream.close();
@@ -40,6 +43,7 @@ public class FileManager {
      * @return коллекция, прочитанная из файла
      */
     public static ArrayList<Product> loadFromFile(String filePath) throws JAXBException {
+        defaultPath = (filePath.endsWith(".xml")) ? filePath : filePath+"collection.xml";
         StringBuilder listXML = new StringBuilder();
         File file;
         if (filePath.endsWith(".xml"))
@@ -98,4 +102,6 @@ public class FileManager {
         return unmarshaller.unmarshal(reader);
 
     }
+
+    static String defaultPath = "";
 }

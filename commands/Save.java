@@ -28,7 +28,7 @@ public class Save extends AbstractCommand {
         else {
             try {
                 if (collectionManager.isEmpty()) System.out.println("Коллекция пуста, нечего сохранять");
-                else FileManager.saveToFile("D:\\", collectionManager);
+                else FileManager.saveToFile(collectionManager);
             } catch (JAXBException | FileNotFoundException e) {
                 System.out.println("Сохранить коллекцию не удалось(проверьте доступ к файлу и папке)");
             }
