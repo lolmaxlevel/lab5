@@ -24,7 +24,7 @@ public class MakeProduct {
             if (fl != 1)
                 System.out.print("Введите имя продукта(строка, непустая, не null):");
             else
-                System.out.println("Введите имя владельца(строка, непустая, не null):");
+                System.out.print("Введите имя владельца(строка, непустая, не null):");
             try {
                 String name = scanner.nextLine().trim();
                 if (name.equals("null") || name.isEmpty()) throw new WrongInputException();

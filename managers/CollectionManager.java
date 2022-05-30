@@ -66,6 +66,7 @@ public class CollectionManager {
      * @return коллекция
      */
     public ArrayList<Product> getCollection(){
+        Collections.sort(collection);
         return collection;
     }
 

@@ -142,8 +142,7 @@ public class Product implements Comparable<Product>{
 
     @Override
     public String toString() {
-        return
-                "Продукт:" + name + "(" + id + ")" + ":\n" +
+        return "Продукт:" + name + "(" + id + ")" + ":\n" +
                 "Координаты:" + coordinates.toString() +
                 "\nБыл создан:" + getCreationDate().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")) +
                 "\nЦена:" + price +

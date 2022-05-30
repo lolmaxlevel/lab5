@@ -9,6 +9,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
@@ -45,13 +46,9 @@ public class FileManager {
     public static ArrayList<Product> loadFromFile(String filePath) throws JAXBException {
         defaultPath = (filePath.endsWith(".xml")) ? filePath : filePath+"collection.xml";
         StringBuilder listXML = new StringBuilder();
-        File file;
-        if (filePath.endsWith(".xml"))
-            file = new File(filePath);
-        else
-            file = new File(filePath + "collection.xml");
+        File file = new File(defaultPath);
 
-        try (InputStream in = new FileInputStream(file))
+        try (InputStreamReader in = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))
         {
             int content;
             while ((content = in.read()) != -1) {
