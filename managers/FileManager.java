@@ -10,7 +10,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * класс для работы с файлами(чтения и записи коллекции в файл)
@@ -24,14 +23,15 @@ public class FileManager {
      * функция, которая сохраняет коллекцию в файл
      *
      * @param collectionManager менеджер коллекции откуда брать коллекцию
+     * @param filepath путь к месту куда нужно сохранить коллекцию
      * @throws JAXBException         исключение, которое вызывается если что-то не так с коллекцией
      * @throws FileNotFoundException исключение, которое вызывается если что-то не так с файлом(нет прав или файла)
      */
-    public static void saveToFile(CollectionManager collectionManager) throws JAXBException, FileNotFoundException {
+    public static void saveToFile(CollectionManager collectionManager, String filepath) throws JAXBException, FileNotFoundException {
         ListHolder holder = new ListHolder();
         holder.setList(collectionManager.getCollection());
         String listXML = marshalIt(holder);
-        final OutputStream os = new FileOutputStream((Objects.equals(defaultPath, "")) ? "collection.xml" : defaultPath);
+        final OutputStream os = new FileOutputStream(filepath+"collection.xml");
         final PrintStream printStream = new PrintStream(os);
         printStream.print(listXML);
         printStream.close();
@@ -88,7 +88,7 @@ public class FileManager {
      * дополнительная функция которая преобразует текст в коллекции
      * @param className объект коллекции
      * @param xml строка из которой нужно сделать коллекции
-     * @return обьект коллекции
+     * @return объект коллекции
      * @throws JAXBException вызывается если невозможно преобразовать текст в коллекцию
      */
     public static Object unmarshalIt(Class<?> className, String xml) throws JAXBException {

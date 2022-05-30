@@ -27,8 +27,8 @@ public class Show extends AbstractCommand {
             if (collectionManager.isEmpty()) System.out.println("Коллекция пуста");
             else {
                 for (Product p : collectionManager.getCollection()) {
-                    System.out.println(p);
                     System.out.println("\n");
+                    System.out.println(p);
                 }
             }
         }
