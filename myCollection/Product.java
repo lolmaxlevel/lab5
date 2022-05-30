@@ -159,7 +159,7 @@ public class Product implements Comparable<Product>{
      */
     @Override
     public int compareTo(Product o) {
-        int result = Double.compare(this.price, o.price);
+        int result = -Double.compare(this.price, o.price);
         if (result == 0) {
             result = this.creationDate.compareTo(o.creationDate);
             }

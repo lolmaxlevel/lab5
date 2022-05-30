@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class RemoveLower extends AbstractCommand {
     public static String alias = "remove_lower";
     static String description = "Удаляет элементы дешевле заданного";
-    private static final String[] acceptedArgs = {"Product"};
+    private static final String[] acceptedArgs = {};
     public RemoveLower(Scanner scanner) {
         super(scanner);
     }
