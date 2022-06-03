@@ -1,6 +1,6 @@
 package managers;
 
-import myCollection.Product;
+import mycollection.Product;
 import utils.ListHolder;
 
 

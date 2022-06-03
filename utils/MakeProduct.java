@@ -1,10 +1,10 @@
 package utils;
 
-import exceptions.WrongArgException;
-import exceptions.WrongInputException;
-import myCollection.Coordinates;
-import myCollection.Person;
-import myCollection.UnitOfMeasure;
+import commands.exceptions.WrongArgException;
+import mycollection.Coordinates;
+import mycollection.Person;
+import mycollection.UnitOfMeasure;
+import utils.exceptions.WrongInputException;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;

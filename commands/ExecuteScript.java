@@ -1,7 +1,7 @@
 package commands;
 
-import exceptions.ScriptLoopException;
-import exceptions.WrongAmountOfArgsException;
+import commands.exceptions.ScriptLoopException;
+import commands.exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
 import managers.ConsoleManager;
 

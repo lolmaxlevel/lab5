@@ -1,13 +1,12 @@
 package commands;
 
-import exceptions.WrongAmountOfArgsException;
-import exceptions.WrongArgException;
+import commands.exceptions.WrongAmountOfArgsException;
+import commands.exceptions.WrongArgException;
 import managers.CollectionManager;
 import managers.FileManager;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 /**
  * Класс команды save

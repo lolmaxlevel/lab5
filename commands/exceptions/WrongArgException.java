@@ -1,4 +1,4 @@
-package exceptions;
+package commands.exceptions;
 /**
  * Класс-исключение - вызывается, когда команде передан неверный аргумент
  */

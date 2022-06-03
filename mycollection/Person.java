@@ -1,12 +1,9 @@
-package myCollection;
+package mycollection;
 
-import exceptions.WrongArgException;
+import commands.exceptions.WrongArgException;
 
-import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Класс владельца для класса Product

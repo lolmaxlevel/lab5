@@ -1,7 +1,7 @@
 package commands;
 
-import exceptions.WrongAmountOfArgsException;
-import exceptions.WrongArgException;
+import commands.exceptions.WrongAmountOfArgsException;
+import commands.exceptions.WrongArgException;
 import managers.CollectionManager;
 
 import java.util.Scanner;

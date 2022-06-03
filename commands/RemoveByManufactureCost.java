@@ -1,6 +1,6 @@
 package commands;
 
-import exceptions.WrongAmountOfArgsException;
+import commands.exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
 
 import java.util.Objects;

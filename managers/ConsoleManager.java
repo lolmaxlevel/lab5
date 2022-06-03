@@ -1,11 +1,8 @@
 package managers;
 
 import commands.*;
-import exceptions.ScriptLoopException;
-import exceptions.WrongAmountOfArgsException;
-import exceptions.WrongArgException;
 
-import javax.xml.bind.JAXBException;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -61,7 +58,8 @@ public class ConsoleManager {
         if (commands.containsKey(commandName)) {
             try{
                 commands.get(commandName).execute(args, collectionManager);
-            } catch (WrongAmountOfArgsException | WrongArgException e) {
+            } catch (commands.exceptions.WrongAmountOfArgsException |
+                     commands.exceptions.WrongArgException e) {
                 System.out.println(e.getMessage());
             }
         } else {

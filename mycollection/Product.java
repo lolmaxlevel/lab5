@@ -1,6 +1,6 @@
-package myCollection;
+package mycollection;
 
-import exceptions.WrongArgException;
+import commands.exceptions.WrongArgException;
 import utils.ZonedDateTimeAdapter;
 
 import javax.xml.bind.annotation.XmlElement;

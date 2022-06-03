@@ -1,6 +1,7 @@
-package exceptions;
+package commands.exceptions;
 
 import java.io.PrintStream;
+
 /**
  * Класс-исключение - вызывается, когда скрипт вызывает сам себя
  */

@@ -1,4 +1,4 @@
-package myCollection;
+package mycollection;
 
 /**
  * перечисление возможных значений поля unitOfMeasure

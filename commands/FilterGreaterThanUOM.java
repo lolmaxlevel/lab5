@@ -1,16 +1,16 @@
 package commands;
 
-import exceptions.WrongAmountOfArgsException;
+import commands.exceptions.WrongAmountOfArgsException;
 import managers.CollectionManager;
-import myCollection.Product;
-import myCollection.UnitOfMeasure;
+import mycollection.Product;
+import mycollection.UnitOfMeasure;
 
 import java.util.Scanner;
 /**
  * Класс команды Filter Greater Than unite_of_measure
  */
 public class FilterGreaterThanUOM extends AbstractCommand{
-    public static String alias = "filter_greater_than_UOM";
+    public static String alias = "filter_greater_than_uom";
     static String description = "Выводит элементы у которых поле unitOfMeasure больше данного";
     private static final String[] acceptedArgs = {"UnitOfMeasure"};
     public FilterGreaterThanUOM(Scanner scanner) {

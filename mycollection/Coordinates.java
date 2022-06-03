@@ -1,6 +1,6 @@
-package myCollection;
+package mycollection;
 
-import exceptions.WrongArgException;
+import commands.exceptions.WrongArgException;
 /**
  * Класс координат для класса Product
  */

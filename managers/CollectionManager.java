@@ -1,7 +1,7 @@
 package managers;
 
-import exceptions.NotFoundIdException;
-import myCollection.Product;
+import commands.exceptions.NotFoundIdException;
+import mycollection.Product;
 import utils.MakeProduct;
 
 import java.time.ZonedDateTime;
